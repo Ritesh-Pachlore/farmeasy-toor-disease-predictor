@@ -149,6 +149,21 @@ This project is open source and available under the [MIT License](LICENSE).
    - `PORT`: Will be set automatically by Render
 6. Click "Create Web Service"
 
+### Troubleshooting Render Deployment
+
+If you encounter the error "Cannot import 'setuptools.build_meta'":
+
+- This is a common issue with pip/setuptools compatibility on Python 3.13
+- Try updating the **Build Command** in Render to: `pip install --upgrade pip setuptools wheel && pip install -r requirements.txt`
+- Alternatively, you can try changing the Python version in Render to 3.11 or 3.12 if available
+- If using Python 3.13, ensure setuptools version is >= 68.0.0
+
+**Alternative Build Command:**
+
+```
+pip install --upgrade pip setuptools wheel && pip install -r requirements.txt
+```
+
 ### Step 3: Access Your App
 
 Once deployed, Render will provide a URL like `https://your-app-name.onrender.com`
