@@ -108,8 +108,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Model files (large, can be regenerated)
-model.pkl
+# Model files (include for deployment, can be regenerated with train.py)
+# model.pkl
 
 # Training logs and info
 catboost_info/

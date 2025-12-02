@@ -114,7 +114,48 @@ crop-disease-prediction/
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## Uploading to GitHub
+## Deployment on Render
+
+### Prerequisites
+
+1. Upload your project to GitHub (see instructions below)
+2. Sign up for a free account at [Render.com](https://render.com)
+
+### Step 1: Upload to GitHub
+
+1. Create a new repository on GitHub
+2. Push your code to GitHub:
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial commit: Crop disease prediction system"
+   git remote add origin https://github.com/your-username/your-repo-name.git
+   git push -u origin master
+   ```
+
+### Step 2: Deploy on Render
+
+1. Go to [Render Dashboard](https://dashboard.render.com)
+2. Click "New +" and select "Web Service"
+3. Connect your GitHub repository
+4. Configure the service:
+   - **Name**: crop-disease-prediction (or your choice)
+   - **Environment**: Python 3
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `python app.py`
+5. Add environment variables (optional):
+   - `FLASK_SECRET`: A random secret key for production
+   - `FLASK_DEBUG`: 0 (for production)
+   - `PORT`: Will be set automatically by Render
+6. Click "Create Web Service"
+
+### Step 3: Access Your App
+
+Once deployed, Render will provide a URL like `https://your-app-name.onrender.com`
+
+## Uploading to GitHub (Alternative)
+
+If you haven't uploaded to GitHub yet:
 
 ### Step 1: Create a GitHub Repository
 
@@ -158,7 +199,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 1. Go to your GitHub repository page
 2. Confirm all files are uploaded
-3. Check that model.pkl and catboost_info/ are NOT uploaded (they should be ignored by .gitignore)
+3. Check that catboost_info/ is ignored but model.pkl is included (for deployment)
 
 ## Notes
 
